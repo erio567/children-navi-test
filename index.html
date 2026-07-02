@@ -1,0 +1,96 @@
+﻿<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Step by step こども発達ナビゲーター認定試験</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <img src="assets/logo.png" alt="Step by step こども発達ナビゲーター" class="logo">
+    <div>
+      <h1>Step by step こども発達ナビゲーター認定試験</h1>
+    </div>
+  </header>
+
+  <main>
+    <section id="startView" class="screen active">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="label">Certification Exam</p>
+          <h2>子どもの発達理解を、教室の支援につなげるための認定試験です。</h2>
+          <p>全30問の4択問題です。制限時間は60分、25問以上正解で合格となり、合格後に認定証を保存できます。</p>
+        </div>
+        <img src="assets/top.png" alt="机の上にタブレット、ノート、マグカップが置かれたイメージ" class="hero-image">
+      </div>
+
+      <form id="startForm" class="panel form-panel">
+        <div class="grid-3">
+          <label>氏名<input id="studentName" required autocomplete="name"></label>
+          <label>メールアドレス<input id="studentEmail" type="email" required autocomplete="email"></label>
+          <label>教室名<input id="schoolName" required></label>
+        </div>
+        <div class="notice">
+          <strong>試験開始前のご案内</strong>
+          <p>この試験は、Step by step こども発達ナビゲーター認定講座の修了確認試験です。全30問の4択問題で、制限時間は60分です。25問以上正解で合格となり、合格後に認定証を保存できます。初回は1〜30問、再テストでは1〜40問の中からランダムに30問が出題されます。再テストは3回まで受験できます。</p>
+        </div>
+        <label class="consent"><input id="consent" type="checkbox" required> ご入力いただいた氏名・メールアドレス・教室名・受験結果は、認定試験の結果確認および修了証発行のために使用します。</label>
+        <button class="primary" type="submit">試験を開始する</button>
+        <p id="attemptInfo" class="small"></p>
+      </form>
+    </section>
+
+    <section id="examView" class="screen">
+      <div class="exam-bar">
+        <span id="timer">60:00</span>
+        <span id="questionCounter">1 / 30</span>
+        <span id="answeredCounter">回答済み 0 / 30</span>
+      </div>
+      <article class="panel question-panel">
+        <p id="questionNumber" class="label"></p>
+        <h2 id="questionText"></h2>
+        <div id="choices" class="choices"></div>
+      </article>
+      <div class="nav-actions">
+        <button id="prevBtn" class="secondary" type="button">戻る</button>
+        <button id="nextBtn" class="primary" type="button">次へ</button>
+      </div>
+    </section>
+
+    <section id="resultView" class="screen">
+      <div class="panel result-panel">
+        <p class="label">Result</p>
+        <h2 id="resultTitle"></h2>
+        <p id="resultMessage"></p>
+        <div class="score"><span id="scoreText"></span><small>30点中</small></div>
+        <div id="saveStatus" class="small"></div>
+        <div id="certificateArea" class="certificate hidden">
+          <img src="assets/logo.png" alt="ロゴ" class="cert-logo">
+          <p class="cert-label">Step by step 発達ナビゲーター認定証</p>
+          <h3 id="certName"></h3>
+          <p>あなたは、Step by step 発達ナビゲーター認定講座の所定の学習を修了し、認定試験に合格されたことをここに証します。</p>
+          <dl>
+            <div><dt>認定講座名</dt><dd>Step by step　こども発達ナビゲーター認定講座</dd></div>
+            <div><dt>合格日</dt><dd id="certDate"></dd></div>
+            <div><dt>点数</dt><dd id="certScore"></dd></div>
+            <div><dt>認定番号</dt><dd id="certNumber"></dd></div>
+            <div><dt>主催者名</dt><dd>Step by step　髙橋茜</dd></div>
+          </dl>
+          <p class="signature">Step by step 髙橋　茜</p>
+        </div>
+        <div id="certificateButtons" class="nav-actions hidden">
+          <button id="printPdfBtn" class="primary" type="button">PDF保存</button>
+          <button id="saveImageBtn" class="secondary" type="button">画像保存</button>
+        </div>
+        <button id="retryBtn" class="primary hidden" type="button">再テストを受ける</button>
+      </div>
+      <div id="reviewList" class="review-list"></div>
+    </section>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
