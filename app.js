@@ -283,7 +283,7 @@ $("#nextBtn").addEventListener("click", () => {
 
 $("#retryBtn").addEventListener("click", () => startExam(state.student));
 $("#printPdfBtn").addEventListener("click", () => window.print());
-$("#saveImageBtn").addEventListener("click", saveCertificateImage);
+
 
 $("#studentEmail").addEventListener("input", (event) => {
   const email = event.target.value.trim();
@@ -294,3 +294,4 @@ $("#studentEmail").addEventListener("input", (event) => {
   const info = getAttemptInfo(email);
   $("#attemptInfo").textContent = `このブラウザでの受験済み回数：${info.completedAttempts}回 / 再テスト残り：${info.retestsLeft}回`;
 });
+
